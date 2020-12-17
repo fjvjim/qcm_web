@@ -45,7 +45,7 @@ Route::get('/logoutadmin', function () {
     if(session()->has('admin')){
         session()->pull('admin');
     }
-    return redirect('/');
+    return redirect('/admin');
 });
 
 Route::get('admin', [AdminController::class, 'index']);

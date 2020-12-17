@@ -23,8 +23,16 @@ class QuestionController extends Controller
         ->select(DB::raw("*, (select COUNT(*) from reponses where questions.id = reponses.question_id) as nb_reponse "))
         ->get();
         $data['questions'] = $reponse;
+        if(session()->has('admin')){
+            $data['type'] = 2;
+            $data['isLogin'] = true;
+            return view('admin/question', $data);
+        }else{
+            return redirect('admin');
+        }
+
         //print_r($reponse);die;
-        return view('admin/question', $data);
+
     }
 
     public function edit($id=0)

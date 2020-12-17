@@ -30,7 +30,7 @@
                             <div class="mainmenu pull-right">
                                 <ul class="nav navbar-nav">
                                     @if ($isLogin && $type == "2")
-                                        <li><a href="{{ url('/logout') }}">Deconnecter</a></li>
+                                        <li><a href="{{ url('/logoutadmin') }}">Deconnecter</a></li>
                                     @else
                                     <li><a href="{{ url('/login') }}" <?php if ($idMenu==3):?>class="active"<?php endif;?>>Connecter</a></li>
                                     @endif

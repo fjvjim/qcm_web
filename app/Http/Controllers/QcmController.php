@@ -40,11 +40,10 @@ class QcmController extends Controller
         $data = $this->_data;
         $data['idMenu'] = 2;
         $question = Question::find($id);
-        $count = Question::count();
+        $count = Question::where('nb_question','>','0')->count();
         $request->session()->put('count', $count);
         $data['question'] = $question;
-        //print_r($question);die;
-
+        $data['qcmcollection'] = $count;
         $res = DB::table('questions')
         ->leftJoin('reponses', 'reponses.question_id', '=', 'questions.id')
         ->select('reponses.*')
@@ -58,6 +57,20 @@ class QcmController extends Controller
             $data['type'] = 1;
             $data['isLogin'] = true;
         }
+        $user = session('users');
+        $resultat = new Resultat();
+        $resl = Resultat::where('user_id',$user[0]->id)->get();
+        if(!empty($resl[0])){
+            //print_r($resl);die;
+            $data['resultat'] = $resl[0];
+        }else{
+            $resultat->nb_reponse = 0;
+            $resultat->porcentage = 0;
+            //print_r($resultat);die;
+        }
+        $data['resultat'] = $resultat;
+
+        print_r($data['resultat'][0]);
         return view('question', $data);
     }
 

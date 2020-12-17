@@ -36,10 +36,13 @@
 
                 </div>
                 <div class="col-sm-4">
+                    <div class="heading">
+                        <h3>Résultat</h3>
+                    </div>
                     <div class="total_area">
 						<ul>
-							<li>Resultat <span>1/3</span></li>
-							<li>Taux <span>85%</span></li>
+							<li>Point <span>{{ $resultat->nb_reponse.'/'.$qcmcollection }}</span></li>
+							<li>Pourcentage <span>{{ $resultat->porcentage.' %' }}</span></li>
                         </ul>
 					</div>
                 </div>
