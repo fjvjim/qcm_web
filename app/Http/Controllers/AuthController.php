@@ -20,6 +20,32 @@ class AuthController extends Controller
         $res = User::where('email','=', $credentials['email'])->where('password','=', $credentials['password'])->get();
         if($res){
             $var = $request->session()->regenerate();
+            if($res[0]->is_admin == 1){
+                $request->session()->put('admin', $res);
+                $request->session()->put('idLogin', $var);
+                return redirect()->intended('/admin/question');
+            }
+            $request->session()->put('users', $res);
+            $request->session()->put('idLogin', $var);
+            return redirect()->intended('/questionnair');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+        /*
+        $data = $request->input();
+        $request->session()->put('user', $data);
+        return redirect('/questionnair');*/
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        $res = User::where('email','=', $credentials['email'])->where('password','=', $credentials['password'])->get();
+        if($res){
+            $var = $request->session()->regenerate();
             $request->session()->put('users', $res);
             $request->session()->put('idLogin', $var);
             return redirect()->intended('/questionnair');

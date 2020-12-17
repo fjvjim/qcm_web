@@ -32,12 +32,18 @@ Route::get('question/liste/{id}', [QcmController::class, 'liste']);
 Route::post('question/valide',[QcmController::class, 'store']);
 Route::get('question/resultats',[QcmController::class, 'resultat']);
 
-
-//Route::get('login', [UserController::class, 'index']);
 Route::post('login', [AuthController::class, 'userLogin']);
 Route::get('/logout', function () {
     if(session()->has('user')){
         session()->pull('user');
+    }
+    return redirect('/');
+});
+
+Route::post('loginadmin', [AuthController::class, 'adminLogin']);
+Route::get('/logoutadmin', function () {
+    if(session()->has('admin')){
+        session()->pull('admin');
     }
     return redirect('/');
 });

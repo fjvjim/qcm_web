@@ -15,6 +15,6 @@ class AdminController extends Controller
     public function index()
     {
         $data = $this->_data;
-        return view('admin/login', $data);
+        return redirect('login');
     }
 }

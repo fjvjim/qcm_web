@@ -22,13 +22,10 @@
                         <div class="col-sm-9">
 
                             <div class="mainmenu pull-left">
-                                <div class="logo">
-                                    <h1>QCM</h1>
-                                </div>
                                 <ul class="nav navbar-nav collapse navbar-collapse">
+                                    <li><a href="{{ url('/') }}" >QCM</a></li>
                                     <li><a href="{{ url('/') }}" >Home</a></li>
                                     <li><a href="{{ url('/questionnair') }}" >Questionnaire</a></li>
-                                    <li><a href="{{ url('/login') }}" >Connecter</a></li>
                                 </ul>
                             </div>
                         </div>

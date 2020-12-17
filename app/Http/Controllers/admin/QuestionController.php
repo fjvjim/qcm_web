@@ -61,21 +61,10 @@ class QuestionController extends Controller
 
     public function drop($id)
     {
-        /*
-        $reponse = Reponse::where('question_id', '=', $id)->get();
-        if($reponse){
-            foreach($reponse as $rep){
-                $res = Reponse::find($rep->id);
-                $res->delete();
-            }
-        }
-        */
         $question = Question::find($id);
         if(!empty($question)){
             $question->delete();
-            //print_r($question);die;
         }
-        //$question->delete();
         print_r('DSDS');die;
         return redirect('admin/question');
     }
