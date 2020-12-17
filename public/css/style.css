@@ -1,0 +1,61 @@
+.container {
+    width: 1070px;
+}
+
+.col-sm-offset-1 {
+    margin-left: 31.333%;
+}
+
+#form {
+    display: block;
+    margin-bottom: 280px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+.ad-menu {
+    margin-left: 8.888%;
+}
+
+.quantity {
+    width: 25px;
+    text-align: center;
+}
+
+.delete {
+    width: 8rem;
+}
+
+.cart_quantity_delete {
+    margin-top: 18px;
+    display: inline-block;
+}
+
+.resultat {
+    margin-bottom: 33px !important;
+    padding: 10px 10px 10px 0 !important;
+}
+
+.resultat ul li {
+    list-style: initial !important;
+}
+
+.true_value {
+    color: #048815!important;
+    font-weight: bold!important;
+}
+
+.false_value {
+    color: #ff5733!important;
+    font-weight: bold!important;
+}
+
+.pull-left {
+    float: left !important;
+    margin-top: 2rem;
+}
+
+.pull-right {
+    float: right;
+    margin-top: 2rem;
+}
