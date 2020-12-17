@@ -23,8 +23,9 @@ class AuthController extends Controller
             if($res[0]->is_admin == 1){
                 $request->session()->put('admin', $res);
                 $request->session()->put('idLogin', $var);
-                return redirect()->intended('/admin/question');
+                return redirect('/admin/question');
             }
+
             $request->session()->put('users', $res);
             $request->session()->put('idLogin', $var);
             return redirect()->intended('/questionnair');

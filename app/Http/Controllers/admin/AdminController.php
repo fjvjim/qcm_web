@@ -15,6 +15,9 @@ class AdminController extends Controller
     public function index()
     {
         $data = $this->_data;
-        return redirect('login');
+        if(!session()->has("admin")){
+            return redirect('login');
+        }
+        return redirect('/admin/question');
     }
 }

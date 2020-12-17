@@ -19,13 +19,21 @@
             <div class="header_top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-9 ad-menu">
+                        <div class="col-sm-9">
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="{{ url('/') }}" <?php if ($idMenu==1):?>class="active"<?php endif?>>Acceuil</a></li>
                                     <li><a href="{{ url('admin/question') }}" <?php if ($adMenu==1 && $idMenu==0):?>class="active"<?php endif?>>Questionnaire</a></li>
-                                    <li><a href="{{ url('/login') }}" <?php if ($adMenu==2):?>class="active"<?php endif;?>>Se connecter</a></li>
-								    <li><a href="{{ url('/logout') }}" <?php if ($adMenu==3):?>class="active"<?php endif;?>>Deconnecter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="mainmenu pull-right">
+                                <ul class="nav navbar-nav">
+                                    @if ($isLogin && $type == "2")
+                                        <li><a href="{{ url('/logout') }}">Deconnecter</a></li>
+                                    @else
+                                    <li><a href="{{ url('/login') }}" <?php if ($idMenu==3):?>class="active"<?php endif;?>>Connecter</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
